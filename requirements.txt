@@ -6,4 +6,5 @@ arxiv
 wikipedia
 huggingface_hub
 langchain_groq
+duckduckgo_search==5.3.1b1
 streamlit
