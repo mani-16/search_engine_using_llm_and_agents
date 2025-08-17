@@ -1,11 +1,11 @@
 import streamlit as st
 from langchain_groq import ChatGroq
 from langchain_community.utilities import ArxivAPIWrapper,WikipediaAPIWrapper
-from langchain_community.tools import ArxivQueryRun,WikipediaQueryRun,DuckDuckGoSearchRun
+from langchain_community.tools import ArxivQueryRun,WikipediaQueryRun
 from langchain.agents import initialize_agent,AgentType
 from langchain.callbacks import StreamlitCallbackHandler
-import os
-from dotenv import load_dotenv
+
+
 
 ## Arxiv and wikipedia Tools
 arxiv_wrapper=ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=200)
@@ -40,7 +40,7 @@ if prompt:=st.chat_input(placeholder="What is machine learning?"):
     st.chat_message("user").write(prompt)
 
     llm=ChatGroq(groq_api_key=api_key,model_name="gemma2-9b-it",streaming=True,max_tokens=2048)
-    tools=[search,arxiv,wiki]
+    tools=[arxiv,wiki]
 
     search_agent=initialize_agent(tools,llm,agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handling_parsing_errors=True,max_iterations=5,k=5)
 
