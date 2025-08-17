@@ -42,7 +42,7 @@ if prompt:=st.chat_input(placeholder="What is machine learning?"):
     llm=ChatGroq(groq_api_key=api_key,model_name="gemma2-9b-it",streaming=True,max_tokens=2048)
     tools=[arxiv,wiki]
 
-    search_agent=initialize_agent(tools,llm,agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handling_parsing_errors=True,max_iterations=5,k=5)
+    search_agent=initialize_agent(tools,llm,agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handling_parsing_errors=True)
 
     with st.chat_message("assistant"):
         st_cb=StreamlitCallbackHandler(st.container(),expand_new_thoughts=False)
