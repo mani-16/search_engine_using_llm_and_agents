@@ -3,5 +3,4 @@ langchain-community
 arxiv
 wikipedia
 langchain_groq
-duckduckgo_search==5.3.1b1
 streamlit
