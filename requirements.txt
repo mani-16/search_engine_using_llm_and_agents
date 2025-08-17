@@ -1,0 +1,9 @@
+langchain
+python-dotenv
+ipykernel
+langchain-community
+arxiv
+wikipedia
+huggingface_hub
+langchain_groq
+streamlit
